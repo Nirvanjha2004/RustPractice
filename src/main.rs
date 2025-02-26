@@ -1,38 +1,19 @@
-
-struct TwoNumbers{
-    a : u32,
-    b : u32
-}
-
-impl TwoNumbers {
-    fn add(&self) -> u32{
-        return self.a+self.b;
-    }
-    fn subtract(&self)->u32{
-        return self.a-self.b;
-    }
-    fn multiply(&self)-> u32{
-        return self.a*self.b;
-    }
-    fn divide(&self)-> u32{
-        if self.a!=0 && self.b!=0{
-            return self.a/self.b;
-        } else {
-            return 0;
-        }
-    }
-}
 fn main () {
-    let myfunction : TwoNumbers = TwoNumbers{
-        a : 20,
-        b : 12
-    };
+    let mut i : u32 = 0;
+    let var : u32 = 10;
+    let mut sum : u32 = 0;
+    while i <= var {
+        sum = sum + i;
+        i = i+1;
+    }
+    print!("The sum while using while loop is {}", sum);
+    sum = 0;
+    //i = 0; for loop jo hai uses the concept of shadowing means it copies the var i means its a new var in for loop ... and if for ki jagah while hi use krte to it does not support shadowing... so tb ye vapas i =0 krna padta..
 
-    let sub_val  : u32 = myfunction.subtract();
-    let divide_val: u32 = myfunction.divide();
-    let mul_val : u32 = myfunction.multiply();
-    let add_val: u32 = myfunction.add();
+    for i in 0..var {
+        sum = sum + i;
+    }
 
-    println!("The values are {},{},{},{}", sub_val, add_val, mul_val, divide_val);
+    print!("The sum according to For loop is {}", sum);
 
 }
