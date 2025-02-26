@@ -1,19 +1,38 @@
-use std::io;
-fn sum(a: u32, b:u32) -> u32 {
-    return a + b;
+
+struct TwoNumbers{
+    a : u32,
+    b : u32
 }
 
+impl TwoNumbers {
+    fn add(&self) -> u32{
+        return self.a+self.b;
+    }
+    fn subtract(&self)->u32{
+        return self.a-self.b;
+    }
+    fn multiply(&self)-> u32{
+        return self.a*self.b;
+    }
+    fn divide(&self)-> u32{
+        if self.a!=0 && self.b!=0{
+            return self.a/self.b;
+        } else {
+            return 0;
+        }
+    }
+}
 fn main () {
-    println!("Enter the first input:");
-    let mut input1: String = String::new();
-    io::stdin().read_line(&mut input1).expect("Failed to read input");
-    let num1: u32 = input1.trim().parse().expect("Please enter a valid number");
+    let myfunction : TwoNumbers = TwoNumbers{
+        a : 20,
+        b : 12
+    };
 
-    println!("Enter the second number:");
-    let mut input2: String = String::new();
-    io::stdin().read_line(&mut input2).expect("Failed to read the second input");
-    let num2: u32 = input2.trim().parse().expect("Enter a valid 2nd number");
+    let sub_val  : u32 = myfunction.subtract();
+    let divide_val: u32 = myfunction.divide();
+    let mul_val : u32 = myfunction.multiply();
+    let add_val: u32 = myfunction.add();
 
-    let result: u32= sum(num1, num2);
-    println!("The sum of a and b is {}", result);
+    println!("The values are {},{},{},{}", sub_val, add_val, mul_val, divide_val);
+
 }
