@@ -15,3 +15,11 @@ fn main(){
 fn get_length(str: &String)-> usize{
     return str.len();
 }
+
+fn main(){
+    let mut string1 = String::from("Nirvan jha");
+    let string2 = &mut string1;
+    let string3 = &string1; // this wont work beacuse  string1 is already borrowed by an mutable reference string2
+
+    println!("{}, {}", string2, string3);
+}
