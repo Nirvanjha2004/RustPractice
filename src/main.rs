@@ -1,12 +1,17 @@
-fn main() {
-    let string1 = String::from("Nirvan Jha");
-    let (strlength, str) = get_length(string1);
-    println!("{}", strlength);
-    println!("{}", str);
-    //print!("{}", string1); Here the ownership is transferred to get_length function and gets destroyed when the function gets out of scope.... so we have to transfer ownership again
+/*
+When you pass a variable by reference, the variable is still owned by the first function. It is only borrowed by the `get_length` function.
 
+### Rules of borrowing -
+
+1. You can only have one mutable reference. If there is an imutable reference, there cant be other immutable or mutable references
+2. You can have multiple immutable references */
+
+fn main(){
+    let string1 = String::from("Nirvan Jha");
+    let len = get_length(&string1);
+    print!("{}", len);
 }
 
-fn get_length(str: String)-> (usize, String){
-    return (str.len(), str); // This is how we are transferring ownership 
+fn get_length(str: &String)-> usize{
+    return str.len();
 }
