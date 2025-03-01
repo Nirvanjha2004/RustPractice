@@ -23,3 +23,14 @@ fn main(){
 
     println!("{}, {}", string2, string3);
 }
+
+//This works because 
+fn main() {
+    let mut str = String::from("Harkirat");
+    let ref1 = &mut str;
+    ref1.push_str("Singh");
+    //Yahan ke baad uper wale ka scope khatam ho gya na use ho gya to...
+    let ref2 = &str;
+    
+    println!("{}", ref2);
+}
